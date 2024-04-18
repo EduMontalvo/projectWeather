@@ -1,7 +1,6 @@
 import { useState } from "react"
 import Formulario from "./Formulario"
 import { getWeather } from "../helpers/getWeather";
-import { formatearFecha } from "../helpers/formatearFecha";
 
 const Hero = () => {
 
@@ -11,7 +10,6 @@ const Hero = () => {
         setNewCountry([country])
     }
     getWeather();
-    formatearFecha('2024-04-16 00:35');
 
     return (
         <div className="p-4 items-center px-60 flex justify-between">

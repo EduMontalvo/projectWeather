@@ -1,5 +1,5 @@
 
-export const formatearFecha = (fechaOriginal: string): string => {
+export const formatearFecha = (fechaOriginal: string): { horaFormateada: string, fechaFormateada: string } => {
     /*     const fechaHora = new Date(fechaOriginal); */
     const fecha = new Date(fechaOriginal);
 
@@ -11,36 +11,19 @@ export const formatearFecha = (fechaOriginal: string): string => {
 
     const [horas, minuto, segundo] = hora.split(':');
 
-    console.log(hora);
-    let horasInt = parseInt(horas,10);
-    console.log(horasInt);
+    let horasInt = parseInt(horas, 10);
     let periodo = '';
 
-    
+    horasInt > 12 ? periodo = 'pm' : periodo = 'am';
 
-    if (horasInt > 12) {
-        horasInt -= 12;
-        periodo = 'PM';
-    } else {
-        periodo = 'AM';
-    }
+    horasInt > 12 ? horasInt -= 12 : (horasInt === 0 ? horasInt = 12 : horasInt)
 
+    const horaFormateada = horasInt + ':' + minuto + ':' + segundo +' '+ periodo;
+    const fechaFormateada = dia + ' de ' + mes + ' del ' + anio
 
+    return {
+        horaFormateada,
+        fechaFormateada
+    };
 
-    console.log(horasInt, periodo);
-
-
-    /* const fecha = fechaHora.toLocaleDateString();
-    const hora = fechaHora.toLocaleTimeString(); */
-
-    /* const fechaActual = new Date(fecha);
-    const dia = fechaActual.getDate();
-    const mes = fechaActual.toLocaleDateString('default',{month:'long'});
-    const anio = fechaActual.getFullYear(); */
-
-    console.log('dia', dia);
-    console.log('de ', mes);
-    console.log('del ', anio);
-    console.log(hora);
-    console.log(parseInt(horas));
 }

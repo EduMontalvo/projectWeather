@@ -1,3 +1,4 @@
+import { formatearFecha } from "./formatearFecha";
 
 export const getWeather = async () => {
 
@@ -7,6 +8,15 @@ export const getWeather = async () => {
 
     const response = await consulta.json();
 
-    console.log(response);
+    console.log(response.location.localtime);
+
+    console.log(formatearFecha(response.location.localtime));
+
+    const {horaFormateada,fechaFormateada} = formatearFecha(response.location.localtime)
+
+    
+
+    console.log(horaFormateada,fechaFormateada);
+    
 }
 
