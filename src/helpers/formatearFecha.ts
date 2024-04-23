@@ -9,7 +9,7 @@ export const formatearFecha = (fechaOriginal: string): { horaFormateada: string,
 
     const hora = fecha.toLocaleTimeString();
 
-    const [horas, minuto, segundo] = hora.split(':');
+    const [horas, minuto] = hora.split(':');
 
     let horasInt = parseInt(horas, 10);
     let periodo = '';
@@ -18,7 +18,7 @@ export const formatearFecha = (fechaOriginal: string): { horaFormateada: string,
 
     horasInt > 12 ? horasInt -= 12 : (horasInt === 0 ? horasInt = 12 : horasInt)
 
-    const horaFormateada = horasInt + ':' + minuto + ':' + segundo +' '+ periodo;
+    const horaFormateada = horasInt + ':' + minuto +' '+ periodo;
     const fechaFormateada = dia + ' de ' + mes + ' del ' + anio
 
     return {

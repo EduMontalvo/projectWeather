@@ -4,6 +4,9 @@ const Formulario: FC<IFormulario> = ( {addCountry} ) => {
 
     const [inputValue, setInputValue] = useState('');
 
+    const firstLetter = (value:string) => {
+        return value.charAt(0).toUpperCase + value.slice(1)
+    }
     const enviarFormulario = (event:React.FormEvent) => {
         event.preventDefault();
         if(inputValue.trim().length <= 3 ) return;

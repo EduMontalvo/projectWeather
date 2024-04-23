@@ -10,7 +10,7 @@ const Hero = () => {
 
 
     const addCountry = ( country: string ) => {
-        setNewCountry(country)
+        setNewCountry(country.charAt(0).toUpperCase()+country.slice(1))
     }
     
     const obtenerDatos = async () => {
