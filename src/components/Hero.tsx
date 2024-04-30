@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Formulario from "./Formulario"
 import { getWeather } from "../helpers/getWeather";
+import earth from '../assets/earth.mp4'
 
 const Hero = () => {
 
@@ -9,18 +10,18 @@ const Hero = () => {
     const [fecha, setFecha] = useState('');
 
 
-    const addCountry = ( country: string ) => {
-        setNewCountry(country.charAt(0).toUpperCase()+country.slice(1))
+    const addCountry = (country: string) => {
+        setNewCountry(country.charAt(0).toUpperCase() + country.slice(1))
     }
-    
+
     const obtenerDatos = async () => {
-        const {horaFormateada,fechaFormateada} = await getWeather(newCountry);
+        const { horaFormateada, fechaFormateada } = await getWeather(newCountry);
         setHora(horaFormateada);
         setFecha(fechaFormateada);
     }
 
     obtenerDatos();
-    
+
 
     return (
         <div className="p-4 items-center px-60 flex justify-between">
@@ -33,9 +34,12 @@ const Hero = () => {
                     <input type="text" placeholder="Search..." value={valor} onChange={event => valorCambiante(event)} className="w-full rounded-xl py-2 px-4"/>
                     <button className="bg-white text-black rounded-xl px-3 py-2 ">Search</button>
                 </form> */}
-                <Formulario addCountry = {addCountry} />
-            </div> 
-            <img className="w-1/3" src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                <Formulario addCountry={addCountry} />
+            </div>
+            {/* <img className="w-1/3" src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /> */}
+            <div>
+                <video src={ earth } autoPlay loop muted/>
+            </div>
         </div>
     )
 }
