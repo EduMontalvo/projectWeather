@@ -8,11 +8,24 @@ export const getWeather = async (newCountry:string) => {
 
     const response = await consulta.json();
 
+    /* console.log(response); */
+
     const {horaFormateada,fechaFormateada} = formatearFecha(response.location.localtime)
+    
+    const {humidity,temp_c,wind_kph} = response.current
+    
+    const {icon,text} = response.current.condition
+
+    console.log(humidity,temp_c,wind_kph,icon,text);
 
     return {
         horaFormateada,
-        fechaFormateada
+        fechaFormateada,
+        humidity,
+        temp_c,
+        wind_kph,
+        icon,
+        text
     }
     
 }
