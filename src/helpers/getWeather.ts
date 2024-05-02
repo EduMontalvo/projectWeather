@@ -12,11 +12,11 @@ export const getWeather = async (newCountry:string) => {
 
     const {horaFormateada,fechaFormateada} = formatearFecha(response.location.localtime)
     
-    const {humidity,temp_c,wind_kph} = response.current
+    const {humidity,temp_c,wind_kph,feelslike_c} = response.current
     
     const {icon,text} = response.current.condition
 
-    console.log(humidity,temp_c,wind_kph,icon,text);
+    console.log(humidity,temp_c,wind_kph,icon,text,feelslike_c);
 
     return {
         horaFormateada,
@@ -25,7 +25,8 @@ export const getWeather = async (newCountry:string) => {
         temp_c,
         wind_kph,
         icon,
-        text
+        text,
+        feelslike_c
     }
     
 }
