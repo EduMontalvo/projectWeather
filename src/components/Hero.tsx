@@ -17,6 +17,8 @@ const Hero = () => {
     const [icon, setIcon] = useState('');
     const [text, setText] = useState('');
     const [feels, setFeels] = useState('');
+    const [region, setRegion] = useState('');
+    const [country, setCountry] = useState('',)
 
 
 
@@ -24,8 +26,8 @@ const Hero = () => {
         setNewCountry(country.charAt(0).toUpperCase() + country.slice(1))
     }
 
-    const obtenerDatos = async () => {
-        const { horaFormateada, fechaFormateada, humidity, temp_c, wind_kph, icon, text, feelslike_c } = await getWeather(newCountry);
+     const obtenerDatos = async () => {
+        const { horaFormateada, fechaFormateada, humidity, temp_c, wind_kph, icon, text, feelslike_c ,region,country} = await getWeather(newCountry);
         setHora(horaFormateada);
         setFecha(fechaFormateada);
 
@@ -54,15 +56,12 @@ const Hero = () => {
                     <video src={earth} autoPlay loop muted className="h-96 ml-48" />
                 </div>
             </div>
-            <div className="text-white">
-                <p>La humedad es de: {humidity} %</p>
-                <p>La temperatura es de: {temp} C</p>
-                <p>El viento es de: {wind} km/h</p>
-                <p>El pronostico es de: {text}</p>
-                <img src={icon} alt="icono" />
+            <div className="px-60">
+                <h1 className="text-3xl text-white pb-2">This is the weather in: {newCountry}</h1>
+                <p className="text-base text-white py-4 w-2/3">Find out the weather in your city or country of choice in real time with our weather app for free at Weather World.</p>
+                <Cards wind={wind} humidity={humidity} temp={temp} icon={icon} text={text} feels={feels} region={region} country={country}/>
             </div>
-            <Main />
-            <Cards humidity={humidity} temp={temp} wind={wind} icon={icon} text={text} feels={feels}/>
+
         </>
     )
 }

@@ -16,7 +16,9 @@ export const getWeather = async (newCountry:string) => {
     
     const {icon,text} = response.current.condition
 
-    console.log(humidity,temp_c,wind_kph,icon,text,feelslike_c);
+    const {region,country} = response.location
+
+    console.log(humidity,temp_c,wind_kph,icon,text,feelslike_c,region,country);
 
     return {
         horaFormateada,
@@ -25,8 +27,10 @@ export const getWeather = async (newCountry:string) => {
         temp_c,
         wind_kph,
         icon,
-        text,
-        feelslike_c
+        text ,
+        feelslike_c,
+        region,
+        country
     }
     
 }

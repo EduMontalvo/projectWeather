@@ -5,6 +5,8 @@ interface ICards{
     icon: string,
     text: string,
     feels: string
+    region: string,
+    country: string
 }
 
 export default ICards
