@@ -4,7 +4,8 @@ interface ICards{
     wind: string,
     icon: string,
     text: string,
-    feels: string
+    feels: string,
+    pressure: string,
     region: string,
     country: string
 }
