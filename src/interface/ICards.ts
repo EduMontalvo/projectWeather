@@ -7,7 +7,9 @@ interface ICards{
     feels: string,
     pressure: string,
     region: string,
-    country: string
+    country: string,
+    imagen:string,
+    video: string,
 }
 
 export default ICards

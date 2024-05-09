@@ -18,7 +18,7 @@ export const getWeather = async (newCountry:string) => {
 
     const {region,country} = response.location
 
-    console.log(humidity,temp_c,wind_kph,icon,text,feelslike_c,region,country);
+    console.log(newCountry);
 
     return {
         horaFormateada,

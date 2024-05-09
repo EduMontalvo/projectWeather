@@ -1,15 +1,15 @@
+export const getVideo = async () => {
 
-export const getVideo = async (/* newCountry:string */) => {
+    const videoURL = `https://pixabay.com/api/videos/?key=43752561-8a4b33ad9ab479224378d13f5&q=peru&per_page=10`
 
-    const url = `https://api.pexels.com/videos/search?query=peru&size=medium&per_page=10`;
+    const response = await fetch(videoURL);
 
-    const response = await fetch(url,{headers: {Authorization: 'SeEsFUXe7t1gK7YwXgfhf4qtMbqqsFDM5nVmZh1liPQkQ7gWEOUfp1hD',}}) 
+    const video = await response.json();
 
-    const responseData = await response.json();
-
-    console.log(responseData);
+    const videoFinded = video.hits[5].videos.large.url;
+    /* console.log(video.hits[0].videos.large.url); */
 
     return (
-        'https://www.youtube.com/watch?v=9bZkp7q19f0'
+        videoFinded
     )
 }
