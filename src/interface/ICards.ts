@@ -8,7 +8,6 @@ interface ICards{
     pressure: string,
     region: string,
     country: string,
-    imagen:string,
     video: string,
 }
 
